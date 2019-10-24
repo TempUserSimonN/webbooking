@@ -1,0 +1,190 @@
+﻿@model webbooking.Models.User
+
+@using webbooking.Models
+
+@{
+    ViewBag.Title = "Godslinjer";
+}
+
+
+<div class="form-group">
+    <h2 for="inputOrdergiver">Booking</h2>
+    <select class="form-control" id="inputArt">
+        <option>Exampel 1</option>
+        <option>Example 2</option>
+    </select>
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                <div class="form-group">
+                    <h2>Addresse oplysninger</h2>
+                    <div class="form-group">
+                        <label for="inputOrdergiver">Ordergiver</label>
+                        <select class="form-control" id="inputArt">
+                            <option>Some Place</option>
+                            <option>Other Place</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt"></label>
+                        <input type="number" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAfsender">Afsender</label>
+                        <select class="form-control" id="inputAfsender">
+                            <option>Some Place</option>
+                            <option>Other Place</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputModtagerr">Modtager</label>
+                        <select class="form-control" id="inputModtagerr">
+                            <option>Some Place</option>
+                            <option>Other Place</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt2">Kontakt</label>
+                        <input type="number" class="form-control" id="inputKontakt2" placeholder="">
+                    </div>
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <h2>Reference/Dato</h2>
+                    <div class="form-group">
+                        <label for="inputKontakt">Reference</label>
+                        <input type="number" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt">FragtBrevsn</label>
+                        <input type="number" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt">Afh. dato/tid</label>
+                        <input type="date" class="form-control" id="inputKontakt" placeholder="">
+                        <input type="time" class="form-control" id="inputKontakt" placeholder="">
+                        <input type="time" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt">Afh. Kommentar</label>
+                        <input type="number" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="inputKontakt">Forv. lev. dato/tid</label>
+                        <input type="date" class="form-control" id="inputKontakt" placeholder="">
+                        <input type="time" class="form-control" id="inputKontakt" placeholder="">
+                        <input type="time" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt">Lev. Kommentar</label>
+                        <input type="number" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputKontakt">Kontakt</label>
+                        <input type="number" class="form-control" id="inputKontakt" placeholder="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Info til transprotør</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Info til fragtbrev</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+            </th>
+        </tr>
+    </thead>
+</table>
+<h2>Godslinjer</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">@Html.ActionLink("Tilføj", "Create", "Godslinjer", null, new { @class = "btn btn btn-success btn-large" })</th>
+            <th scope="col">Mærke Og Mr.</th>
+            <th scope="col">Antal</th>
+            <th scope="col">Art</th>
+            <th scope="col">Inhold</th>
+            <th scope="col">Bruttovægt</th>
+            <th scope="col">NettoVægt</th>
+            <th scope="col">Volume</th>
+            <th scope="col">VolumeKode</th>
+            <th scope="col">Temperatur</th>
+            <th scope="col">EmballageType</th>
+            <th scope="col">Antal af emballage</th>
+            <th scope="col">Afhentningsadresse</th>
+            <th scope="col">Leveringsadresse</th>
+            <th scope="col">Bund pll</th>
+            <th scope="col">Bytte emb</th>
+            <th scope="col">Bytte emb art</th>
+            <th scope="col">Kolli antal</th>
+            <th scope="col">Kolli art</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Godslinjer godslinjer in Model.tempPlates[ViewBag.currentTempPlates].godslinjers)
+        {
+        <tr>
+            <td>
+                @Html.ActionLink("Slet", "Delete", new { id = godslinjer.id }, new { @class = "btn btn btn-danger btn-large", onclick = "return confirm('Er du sikker?');" })
+                @Html.ActionLink("Redigere", "Edit", new { id = godslinjer.id }, new { @class = "btn btn btn-success btn-large" })
+            </td>
+            <td hidden>@godslinjer.id</td>
+            <td>@godslinjer.mærkeOgMr</td>
+            <td>@godslinjer.antal</td>
+            @{
+                if (Model.pallers.Exists(x => x.id == godslinjer.art))
+                {
+                    <td>@Model.pallers.First(x => x.id == godslinjer.art).vertion</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            }
+            <td>@godslinjer.inhold</td>
+            <td>@godslinjer.bruttovægt</td>
+            <td>@godslinjer.nettoVægt</td>
+            <td>@godslinjer.volume</td>
+            <td>@godslinjer.volumeKode</td>
+            <td>@godslinjer.temperatur</td>
+            <td>@godslinjer.emballageType</td>
+            <td>@godslinjer.antalAfEmballage</td>
+            <td>@godslinjer.afhentningsadresse</td>
+            <td>@godslinjer.leveringsadresse</td>
+            <td>@godslinjer.bundPll</td>
+            <td>@godslinjer.bytteEmb</td>
+            @if (Model.pallers.Exists(x => x.id == godslinjer.bytteEmbArt))
+            {
+                <td>@Model.pallers.First(x => x.id == godslinjer.bytteEmbArt).vertion</td>
+            }
+            else
+            {
+                <td></td>
+            }
+            <td>@godslinjer.kolliAntal</td>
+            <td>@godslinjer.bytteEmb</td>
+            @{
+                if (Model.pallers.Exists(x => x.id == godslinjer.kolliArt))
+                {
+                <td>@Model.pallers.First(x => x.id == godslinjer.kolliArt).vertion</td>
+            }
+            else
+            {
+                <td></td>
+            }
+            }
+        </tr>
+        }
+    </tbody>
+</table>

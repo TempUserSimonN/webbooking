@@ -1,0 +1,122 @@
+﻿@model IEnumerable<webbooking.Models.Addresse>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.streat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.openingsHours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contakt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.miscellaneous)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cMR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saveInAdresseBook)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.streat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.openingsHours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contakt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.miscellaneous)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cMR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saveInAdresseBook)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+</table>
